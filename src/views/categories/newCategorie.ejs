@@ -1,0 +1,35 @@
+<%- include('../partials/header') %>
+<body>
+    <%- include('../partials/navbar') %>
+    <div class="container">
+        <hr>
+        <% if (exists) { %>
+            <div class="alert alert-danger" role="alert">
+                <%= exists %> 
+              </div>
+        <% } %>
+        <% if (error) { %>
+            <div class="alert alert-danger" role="alert">
+                <%= error %> 
+              </div>
+        <% } %>
+        <% if (sucess) { %>
+            <div class="alert alert-success" role="alert">
+                <%= sucess %> 
+              </div>
+        <% } %>
+        <div class="card">
+            <div class="card-header">
+                <h2>Cadastro de categoria</h2>
+            </div>
+            <div class="card-body">
+                <form action="/admin/categories/save" method="POST">
+                    <input class="form-control" type="text" name="title" placeholder="Nome da categoria" required=true>
+                    <br>
+                    <button class="btn btn-outline-success">Enviar</button>
+                </form>
+            </div>
+            </div>
+        </div>
+</body>
+<%- include('../partials/footer') %>

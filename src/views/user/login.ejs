@@ -1,0 +1,31 @@
+<%- include('../partials/header') %>
+<body>
+    <%- include('../partials/navBarLogin') %>
+    <div class="container mt-5">
+        <% if (error) { %>
+            <div class="alert alert-danger" role="alert">
+                <%= error %> 
+              </div>
+        <% } %>
+        <div class="card">
+            <div class="card-header">
+                <h2>Login</h2>
+            </div>
+            <div class="card-body">
+                <form action="/admin/authentication" method="POST">
+                    <div class="mb-3">
+                        <label  class="form-label">Email</label>
+                        <input type="email" class="form-control" name="email">
+                      </div>
+                      <div class="mb-3">
+                        <label class="form-label">Senha</label>
+                        <input type="password" class="form-control" name="password" >
+                      </div>
+                      <button type="submit" class="btn btn-outline-success">Logar</button>
+                </form>
+            </div>
+            </div>
+        </div>
+    </div>
+</body>
+<%- include('../partials/footer') %>

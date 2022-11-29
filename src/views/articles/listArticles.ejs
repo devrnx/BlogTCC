@@ -1,0 +1,56 @@
+<%- include('../partials/header') %>
+<body>
+    <%- include('../partials/navbar') %>
+    <div class="container">
+        <hr>
+            <h2>Artigos</h2>
+            <hr>
+            <a  href="/admin/articles/new" class="btn btn-outline-success"> Criar novo Artigo</a>
+        <table class="table table-striped">
+            <thead >
+                <tr>
+                    <th>ID</th>
+                    <th>Titulo</th>
+                    <th>Slug</th>
+                    <th>Categoria</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                    <% response.forEach(element => { %>
+                        <tr>
+                            <th>
+                                <%= element.id_article %> 
+                            </th>
+                            <th>
+                                <%= element.title %> 
+                            </th>
+                            <th>
+                                <%= element.slug %> 
+                            </th>
+                            <th>
+                                <%= element.title_categorie %> 
+                            </th>
+                            <th>
+                                <a href="/admin/articles/edit/<%= element.id_article %>" class="btn btn-outline-warning">Editar</a>
+                                
+                                <form action="/admin/articles/delete" method="POST" style="display: inline" onsubmit="confirmDelet(event, this)">
+                                    <input type="hidden" name="id" value="<%= element.id_article %>">
+                                    <button class="btn btn-outline-danger">Deletar</button>
+                                </form>
+                            </th>
+                        </tr>
+                    <% }) %>
+            </tbody>
+        </table>
+    </div>
+    
+</body>
+<%- include('../partials/footer') %></hr>
+<script>
+    const confirmDelet = (event, form) => {
+        event.preventDefault();
+        let response = confirm("Deseja realmente deletar?");
+        if(response) form.submit();
+    }
+</script>

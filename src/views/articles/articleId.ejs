@@ -1,0 +1,40 @@
+<%- include('../partials/header') %>
+<body>
+    <% if (userLog) { %>
+      <%- include('../partials/navbar') %>
+  <% } else { %>
+      <%- include('../partials/navbarIndex') %>
+  <% } %> 
+    <br>
+   <div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">Blog TCC</h1>
+        <p class="lead">As principais noticias você encontra aqui. Uma equipe seriamente comprometida em trazer o que ha de melhor na internet! Seja muito bem vindo.</p>
+        <hr class="my-4">
+        <p>Deseja saber mais? Clique abaixo e fique por dentro dos nossos bastidores.</p>
+        <p class="lead">
+          <a  class="btn btn-outline-dark" href="#" role="button">Saber mais</a>
+        </p>
+      </div>
+        <br> <br>
+      <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <!-- Post preview-->
+                <div class="post-preview-article">
+                        <div href="#"></a>
+                            <h2 class="post-title"><%= article.title %> </h2>
+                            <p class="post-title"><%= article.preview %> </p>
+
+                            <p class="post-subtitle"><%- article.article %> </p>
+                        </div>
+                        <p class="post-meta">
+                            Posted on: <%= article.created_at %> 
+                        </p>
+                        <hr>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<%- include('../partials/footer') %>

@@ -1,0 +1,40 @@
+<%- include('../partials/header') %>
+<body>
+    <%- include('../partials/navbar') %>
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-header">
+                <h2>Cadastro Usuario</h2>
+            </div>
+            <div class="card-body">
+                <% if (error) { %>
+                    <div class="alert alert-danger" role="alert">
+                        <%= error %> 
+                      </div>
+                <% } %>
+                <form action="/admin/users/edit" method="POST">
+                    <div class="mb-3">
+                        <label  class="form-label">Nome</label>
+                        <input type="text" class="form-control"  name="name" value="<%= response.name %> ">
+                      </div>
+                    <div class="mb-3">
+                        <label  class="form-label">Email</label>
+                        <input type="email" class="form-control" name="email" value="<%= response.email %>">
+                      </div>
+                      <div class="mb-3">
+                        <label class="form-label">Senha antiga</label>
+                        <input type="password" class="form-control" name="passwordOld">
+                      </div>
+                      <div class="mb-3">
+                        <label class="form-label"> Nova Senha</label>
+                        <input type="password" class="form-control" name="passwordNew">
+                      </div>
+                      <input type="hidden" name="id" value="<%= response.id_user %> ">
+                      <button type="submit" class="btn btn-outline-success">Editar Usuario</button>
+                </form>
+            </div>
+            </div>
+        </div>
+    </div>
+</body>
+<%- include('../partials/footer') %>
